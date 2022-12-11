@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Chromeの自動操作をやりたい",
+  "permissions": [
+    "<all_urls>"
+  ],
   "content_scripts": [
     {
       "matches": [
