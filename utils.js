@@ -17,8 +17,10 @@ const clickBySelector = (selector) => {
 // コンソール等で使えるようにする
 
 let elem = document.createElement('script');
+elem.type = 'text/javascript'; 
 elem.innerText = `
 const cq = ${checkQuery.toString()};
 const cbs = ${clickBySelector.toString()};
+console.log('loaded.')
 `;
-document.body.appendChild(elem);
+document.head.appendChild(elem);
