@@ -12,7 +12,10 @@ for (const d of data) {
     const commands = d.commands
     document.addEventListener('keypress', (e) => {
       const key = e.key;
-      if (key in commands) commands[key]();
+      if (key in commands) {
+        e.preventDefault();
+        commands[key]()
+      };
     });
   }
 }
