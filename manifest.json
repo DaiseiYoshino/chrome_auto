@@ -1,0 +1,16 @@
+{
+  "name": "Chrome_auto",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Chromeの自動操作をやりたい",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ]
+}
