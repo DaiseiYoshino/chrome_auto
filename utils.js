@@ -23,6 +23,8 @@ const clickByPoint = (params) => {
   elem.dispatchEvent(event);
 }
 
+const sleep = time => new Promise(resolve => setTimeout(resolve, time));
+
 // コンソール等で使えるようにする
 
 let elem = document.createElement('script');
@@ -31,6 +33,7 @@ elem.innerText = `
 const cq = ${checkQuery.toString()};
 const cbs = ${clickBySelector.toString()};
 const cbp = ${clickByPoint.toString()};
+const sleep = ${sleep.toString()};
 console.log('loaded.');
 `;
 document.head.appendChild(elem);
