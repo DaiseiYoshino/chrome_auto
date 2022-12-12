@@ -21,6 +21,6 @@ elem.type = 'text/javascript';
 elem.innerText = `
 const cq = ${checkQuery.toString()};
 const cbs = ${clickBySelector.toString()};
-console.log('loaded.')
+console.log('loaded.');
 `;
 document.head.appendChild(elem);
