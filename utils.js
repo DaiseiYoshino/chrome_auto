@@ -14,6 +14,15 @@ const clickBySelector = (selector) => {
   }
 }
 
+const clickByPoint = (params) => {
+  const elem = document.elementsFromPoint(params.x, params, y);
+  const event = new MouseEvent(
+    'click',
+    {cx: params.cx, cy: params.cy}
+  );
+  elem.dispatchEvent(event);
+}
+
 // コンソール等で使えるようにする
 
 let elem = document.createElement('script');
@@ -21,6 +30,7 @@ elem.type = 'text/javascript';
 elem.innerText = `
 const cq = ${checkQuery.toString()};
 const cbs = ${clickBySelector.toString()};
+const cbp = ${clickByPoint.toString()};
 console.log('loaded.');
 `;
 document.head.appendChild(elem);
