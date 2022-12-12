@@ -1,5 +1,17 @@
 // 関数類定義
 
+const addToStorage = (itemKey, obj) => {
+  const storageKey = 'auto_logs';
+
+  let item = JSON.parse(localStorage.getItem(storageKey));
+  if (item == null) {
+    item = {};
+  }
+  item[itemKey] = obj;
+  
+  localStorage.setItem(storageKey, JSON.stringify(item))
+}
+
 const checkQuery = (query) => {
   const elemno = document.querySelectorAll(query).length;
   return 'count: ' + elemno;
