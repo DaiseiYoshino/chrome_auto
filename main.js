@@ -8,5 +8,9 @@ for (const d of data) {
         commands[key]()
       };
     });
+
+    if (d.auto) {
+      d.auto();
+    }
   }
 }
