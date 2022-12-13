@@ -41,6 +41,12 @@ const clickByPoint = (params) => {
 
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
+const randInRange = (min, max) => {
+  const diff = max - min;
+  const randFloat = Math.random * range + min;
+  return Math.trunc(randFloat);
+}
+
 const waitElemAppears = async query => {
   while (document.querySelector(query)) {
     await sleep(1000);
@@ -56,6 +62,7 @@ elem.innerText = `
 const cq = ${checkQuery.toString()};
 const cbs = ${clickBySelector.toString()};
 const cbp = ${clickByPoint.toString()};
+const rr = ${randInRange.toString()};
 const sleep = ${sleep.toString()};
 console.log('loaded.');
 `;
