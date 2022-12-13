@@ -17,6 +17,12 @@ const checkQuery = (query) => {
   return 'count: ' + elemno;
 }
 
+const clickAfterElemAppears = async (selector) => {
+  await waitElemAppears(selector);
+  await sleep(randInRange(100, 1000));
+  clickBySelector(selector);
+}
+
 const clickBySelector = (selector) => {
   const elem = document.querySelector(selector);
   if (elem) {
