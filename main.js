@@ -20,6 +20,6 @@ for (const d of data) {
       d.auto();
     }
 
-    return;
+    break;
   }
 }
