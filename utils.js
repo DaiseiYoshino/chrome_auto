@@ -54,7 +54,7 @@ const randInRange = (min, max) => {
 }
 
 const waitElemAppears = async query => {
-  while (document.querySelector(query)) {
+  while (! document.querySelector(query)) {
     await sleep(1000);
   }
   return;
