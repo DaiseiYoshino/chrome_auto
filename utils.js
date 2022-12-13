@@ -41,6 +41,13 @@ const clickByPoint = (params) => {
 
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
+const waitElemAppears = async query => {
+  while (document.querySelector(query)) {
+    await sleep(1000);
+  }
+  return;
+}
+
 // コンソール等で使えるようにする
 
 let elem = document.createElement('script');
