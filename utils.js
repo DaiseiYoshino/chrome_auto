@@ -18,9 +18,13 @@ const checkQuery = (query) => {
 }
 
 const clickAfterElemAppears = async (selector) => {
-  await waitElemAppears(selector);
-  await sleep(randInRange(100, 1000));
-  clickBySelector(selector);
+  window.onload = (
+    async () => {
+      await waitElemAppears(selector);
+      await sleep(randInRange(100, 1000));
+      clickBySelector(selector);
+    }
+  )();
 }
 
 const clickBySelector = (selector) => {
