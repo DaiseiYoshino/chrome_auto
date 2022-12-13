@@ -27,10 +27,14 @@ const clickBySelector = (selector) => {
 }
 
 const clickByPoint = (params) => {
-  const elem = document.elementsFromPoint(params.x, params, y);
+  const elem = document.elementsFromPoint(params.x, params.y);
   const event = new MouseEvent(
     'click',
-    {cx: params.cx, cy: params.cy}
+    {
+      bubbles: true,
+      clientX: params.x,
+      clientY: params.y
+    }
   );
   elem.dispatchEvent(event);
 }
