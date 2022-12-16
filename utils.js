@@ -53,7 +53,7 @@ const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 const randInRange = (min, max) => {
   const diff = max - min;
-  const randFloat = Math.random * diff + min;
+  const randFloat = Math.random() * diff + min;
   return Math.trunc(randFloat);
 }
 
