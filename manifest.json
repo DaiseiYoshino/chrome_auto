@@ -12,10 +12,10 @@
         "*://*/*"
       ],
       "js": [
-        "utils.js",
-        "datas.js",
-        "setAuto.js",
-        "cmdwin/createCmdWin.js"
+        "js/utils.js",
+        "js/datas.js",
+        "js/setAuto.js",
+        "js/cmdwin/createCmdWin.js"
       ]
     }
   ]
