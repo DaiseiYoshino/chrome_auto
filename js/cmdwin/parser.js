@@ -6,6 +6,33 @@ class CmdParser {
     this.funcs = funcs;
   }
 
+  // コマンドを関数とパラメータに分離する
+  splitFuncPart(cmdArr) {
+    let tmpFunc = this.funcs;
+    let cmdVars = [];
+    for (const cmd of cmdArr) {
+      if (typeof tmpFunc === 'function') {
+        cmdVars.push(cmd);
+        continue;
+      }
+
+      // cmdが関数を指してるっぽい場合
+      if(tmpFunc[cmd]) {
+        tmpFunc = tmpFunc[cmd];
+      } else {// そもそも対象が存在しなかった場合
+        return {
+          f: () => 'Command not found.',
+          vars: []
+        };
+      }
+    }
+
+    return {
+      f: tmpFunc,
+      vars: cmdVars
+    };
+  }
+
   /**
    * コマンドのパースを行い実行する
    * 
@@ -14,24 +41,10 @@ class CmdParser {
    */
   do(cmdStr) {
     const cmdArr = cmdStr.split(' ');
-    let tmpFunc = this.funcs;
-    let cmdVars = [];
 
-    for (const cmd of cmdArr) {
-      if (typeof tmpFunc === 'function') {
-        cmdVars.push(cmd);
-        continue;
-      }
-  
-      // なんか関数を指していると思われる場合
-      if (tmpFunc[cmd]) {
-        tmpFunc = tmpFunc[cmd];
-      } else {// そもそも対象が存在しなかった場合
-        return 'Command not found.';
-      }
-    }
+    const parseResult = this.splitFuncPart(cmdArr);
   
     // parse結果の処理の実行
-    return tmpFunc(...cmdVars);
+    return parseResult.f(...parseResult.vars);
   }
 }
