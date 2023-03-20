@@ -17,17 +17,6 @@ const styleMaker = (styleText) => {
 // コマンド欄の実体を作成する
 const cmdWin = document.body.appendChild(document.createElement('div'));
 
-console.log(styleMaker(`
-  background: #222
-  color: #008
-  position: fixed
-  bottom: -1px
-  right: 25%
-  width: 25%
-  height: 100px
-  visibility: hidden
-`));
-
 // スタイルを設定する
 cmdWin.style = styleMaker(`
   background: #222
