@@ -16,6 +16,7 @@
         "js/datas.js",
         "js/setAuto.js",
         "js/setConsole.js",
+        "js/cmdwin/parser.js",
         "js/cmdwin/createCmdWin.js"
       ]
     }

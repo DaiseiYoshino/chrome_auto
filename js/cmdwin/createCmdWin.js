@@ -8,30 +8,6 @@ const cmdWinFuncs = {
   }
 };
 
-// パーサの定義
-const cmdParser = (funcs, cmdStr) => {
-  const cmdArr = cmdStr.split(' ');
-  let tmpFunc = funcs;
-  let cmdVars = [];
-  for (cmd of cmdArr) {
-    // そもそも実行関数が確定している時は、実行時の引数に入れる
-    if (typeof tmpFunc === 'function') {
-      cmdVars.push(cmd);
-      continue;
-    }
-
-    // なんか関数を指していると思われる場合
-    if (f = tmpFunc[cmd]) {
-      tmpFunc = f;
-    } else {// そもそも対象が存在しなかった場合
-      return 'Command not found.';
-    }
-  }
-
-  // parse結果の処理の実行
-  return tmpFunc(...cmdVars);
-};
-
 // 起動設定の外出し
 const isShiftCtrl = (e) => {
   if (!e.shiftKey) return false;
@@ -84,7 +60,7 @@ class CmdWin {
       // Enterでなければ何もしない
       if (e.key !== 'Enter') return;
 
-      this.cmdInput.value = this.parser(this.funcs, this.cmdInput.value);
+      this.cmdInput.value = this.parser.do(this.cmdInput.value);
     }, true);
   }
 
@@ -109,4 +85,4 @@ class CmdWin {
   }
 }
 
-(new CmdWin(cmdWinFuncs, cmdParser)).run();
+(new CmdWin(cmdWinFuncs, new CmdParser(cmdWinFuncs))).run();
