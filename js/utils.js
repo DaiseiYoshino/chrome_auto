@@ -66,11 +66,44 @@ const waitElemAppears = async query => {
   return;
 }
 
+class FindQuerySelector {
+  constructor(elem) {
+    this.elem = elem;
+    this.infoObj = {};
+    return this;
+  }
+
+  setTag() {
+    this.infoObj.tagName = this.elem.tagName;
+  }
+
+  setId() {
+    const id = this.elem.id;
+    if (id) {
+      this.infoObj.id = id;
+      console.log('Id set.');
+    } else {
+      console.log('No id.');
+    }
+  }
+
+  info() {
+    console.table({
+      'id': this.elem.id
+    });
+  }
+
+  toSelector() {
+    return `${this.infoObj.tagName}${this.infoObj.id ? '#'+this.infoObj.id : ''}`;
+  }
+}
+
 const funcsData = {
   cq: checkQuery,
   cbs: clickBySelector,
   cbp: clickByPoint,
   copy: copy,
   rr: randInRange,
-  sleep: sleep
+  sleep: sleep,
+  fqs: FindQuerySelector
 };
