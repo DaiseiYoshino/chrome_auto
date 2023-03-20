@@ -64,16 +64,25 @@ const waitElemAppears = async query => {
   return;
 }
 
+const funcsData = {
+  cq: checkQuery,
+  cbs: clickBySelector,
+  cbp: clickByPoint,
+  rr: randInRange,
+  sleep: sleep
+};
+
+const toScript = (funcObj) => {
+  let ret = '';
+  for (key in funcObj) {
+    ret += `const ${key} = ${funcObj[key]};\n`;
+  }
+  return ret;
+}
+
 // コンソール等で使えるようにする
 
 let elem = document.createElement('script');
 elem.type = 'text/javascript'; 
-elem.innerText = `
-const cq = ${checkQuery.toString()};
-const cbs = ${clickBySelector.toString()};
-const cbp = ${clickByPoint.toString()};
-const rr = ${randInRange.toString()};
-const sleep = ${sleep.toString()};
-console.log('loaded.');
-`;
+elem.innerText = toScript(funcsData);
 document.head.appendChild(elem);
