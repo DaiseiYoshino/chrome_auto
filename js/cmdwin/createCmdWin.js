@@ -19,8 +19,7 @@ const isShiftCtrl = (e) => {
  * コマンド窓を作ったり云々なクラス
  */
 class CmdWin {
-  constructor(funcs, parser) {
-    this.funcs = funcs;
+  constructor(parser) {
     this.parser = parser;
   }
 
@@ -85,4 +84,4 @@ class CmdWin {
   }
 }
 
-(new CmdWin(cmdWinFuncs, new CmdParser(cmdWinFuncs))).run();
+(new CmdWin(new CmdParser(cmdWinFuncs))).run();
