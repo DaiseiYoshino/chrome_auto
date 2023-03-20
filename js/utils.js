@@ -49,6 +49,8 @@ const clickByPoint = (params) => {
   elem.dispatchEvent(event);
 }
 
+const copy = text => navigator.clipboard.writeText(text);
+
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 const randInRange = (min, max) => {
@@ -68,6 +70,7 @@ const funcsData = {
   cq: checkQuery,
   cbs: clickBySelector,
   cbp: clickByPoint,
+  copy: copy,
   rr: randInRange,
   sleep: sleep
 };
