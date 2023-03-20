@@ -14,7 +14,8 @@
       "js": [
         "utils.js",
         "datas.js",
-        "main.js"
+        "main.js",
+        "cmdwin/createCmdWin.js"
       ]
     }
   ]
