@@ -5,7 +5,8 @@
   "description": "Chromeの自動操作をやりたい",
   "permissions": [
     "<all_urls>",
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "content_scripts": [
     {
