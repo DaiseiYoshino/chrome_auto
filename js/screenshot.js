@@ -4,7 +4,10 @@
     https://github.com/bobbyrne01/save-text-to-file-chrome/tree/master/addon
 */
 
-const getScreenShot = () => {
+const getScreenShot = (filename) => {
+  // グローバル変数的なもの
+  let imageDataUrl = '';
+
   // スクショ
   chrome.tabs.captureVisibleTab(
     null,
@@ -16,4 +19,17 @@ const getScreenShot = () => {
       imageDataUrl = dataUrl;
     }
   );
+
+  // 保存
+  chrome.downloads.download(
+    {
+      filename: filename,
+      url: imageDataUrl
+    },
+    () => {
+      return;
+    }
+  )
+
+  return 'File saved.'
 }
