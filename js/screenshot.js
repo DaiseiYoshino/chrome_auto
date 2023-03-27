@@ -28,7 +28,8 @@ const getScreenShot = () => {
   chrome.tabs.sendMessage(
     tabData.id,
     {
-      action: 'screenshotBegin'
+      action: 'screenshotBegin',
+      shared: shared
     }
   );
 }
