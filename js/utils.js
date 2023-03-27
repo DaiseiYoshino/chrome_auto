@@ -72,5 +72,6 @@ const funcsData = {
   cbp: clickByPoint,
   copy: copy,
   rr: randInRange,
+  ss: getScreenshot,
   sleep: sleep
 };

@@ -4,7 +4,9 @@
     https://github.com/bobbyrne01/save-text-to-file-chrome/tree/master/addon
 */
 
-const getScreenShot = (filename) => {
+const getScreenShot = (name) => {
+  const filename = name ?? 'screenshot';
+
   // グローバル変数的なもの
   let imageDataUrl = '';
 

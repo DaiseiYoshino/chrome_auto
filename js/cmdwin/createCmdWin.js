@@ -5,7 +5,8 @@ const cmdWinFuncs = {
   fs: {
     a: () => 'Fs a called.',
     b: (v1, v2) => `Input is ${v1}, ${v2}`
-  }
+  },
+  ss: getScreenShot
 };
 
 // 起動設定の外出し
