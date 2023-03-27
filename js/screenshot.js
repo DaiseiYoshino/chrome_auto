@@ -16,6 +16,7 @@ const getScreenShot = () => {
       hasVscrollbar: false
     }
   };
+  let imageDataUrl = '';
   // 現在のタブ情報を取得
   chrome.windows.getCurrent((win) => {
     chrome.tabs.query(
@@ -26,12 +27,15 @@ const getScreenShot = () => {
     );
   });
 
-  // スクショ開始
-  chrome.tabs.sendMessage(
-    tabData.id,
+  // スクショ
+  chrome.tabs.captureVisibleTab(
+    null,
     {
-      action: 'screenshotBegin',
-      shared: shared
+      format: 'png',
+      quality: 70
+    },
+    (dataUrl) => {
+      imageDataUrl = dataUrl;
     }
   );
 }
