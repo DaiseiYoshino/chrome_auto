@@ -4,7 +4,8 @@
   "manifest_version": 2,
   "description": "Chromeの自動操作をやりたい",
   "permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "tabs"
   ],
   "content_scripts": [
     {
