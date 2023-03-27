@@ -4,7 +4,9 @@
   "manifest_version": 2,
   "description": "Chromeの自動操作をやりたい",
   "permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "activeTab",
+    "downloads"
   ],
   "content_scripts": [
     {
@@ -12,6 +14,7 @@
         "*://*/*"
       ],
       "js": [
+        "js/screenshot.js",
         "js/utils.js",
         "js/datas.js",
         "js/setAuto.js",
