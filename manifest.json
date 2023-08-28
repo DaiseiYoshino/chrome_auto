@@ -34,5 +34,8 @@
     }
   ],
   "web_accessible_resources": [
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; object-src 'self'; script-src 'self';"
+  }
 }
