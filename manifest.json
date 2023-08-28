@@ -1,12 +1,21 @@
 {
   "name": "Chrome_auto",
   "version": "0.0.1",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Chromeの自動操作をやりたい",
   "permissions": [
     "<all_urls>",
     "activeTab",
     "downloads"
+  ],
+  "background": [
+    {
+      "service_worker": "js/commands/utils.js",
+      "type": "module"
+    },
+    {
+      "service_worker": "js/screenshot.js"
+    }
   ],
   "content_scripts": [
     {
@@ -14,14 +23,15 @@
         "*://*/*"
       ],
       "js": [
-        "js/screenshot.js",
-        "js/utils.js",
         "js/datas.js",
         "js/setAuto.js",
         "js/setConsole.js",
         "js/cmdwin/parser.js",
         "js/cmdwin/createCmdWin.js"
-      ]
+      ],
+      "run_at": "document_end"
     }
+  ],
+  "web_accessible_resources": [
   ]
 }
