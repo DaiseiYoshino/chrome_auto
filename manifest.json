@@ -27,7 +27,8 @@
         "js/setAuto.js",
         "js/setConsole.js",
         "js/cmdwin/parser.js",
-        "js/cmdwin/createCmdWin.js"
+        "js/cmdwin/createCmdWin.js",
+        "js/main.js"
       ],
       "run_at": "document_end"
     }
