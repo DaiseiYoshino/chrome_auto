@@ -11,24 +11,22 @@ class CmdParser {
     let tmpFunc = this.funcs;
     let cmdVars = [];
     for (const cmd of cmdArr) {
-      if (typeof tmpFunc === 'function') {
-        cmdVars.push(cmd);
-        continue;
-      }
 
-      // cmdが関数を指してるっぽい場合
-      if(tmpFunc[cmd]) {
+      if (tmpFunc[cmd]) {// 該当するコマンドがある時
         tmpFunc = tmpFunc[cmd];
-      } else {// そもそも対象が存在しなかった場合
+      } else if (tmpFunc.func) {// 該当するコマンドが無いが、コマンドの引数の形式となっている時
+        cmdVars.push(cmd);
+      } else {// そんなコマンドない時
         return {
           f: () => 'Command not found.',
           vars: []
         };
       }
+
     }
 
     return {
-      f: tmpFunc,
+      f: tmpFunc.func,
       vars: cmdVars
     };
   }
@@ -39,12 +37,32 @@ class CmdParser {
    * @param {string} cmdStr 
    * @returns {string}
    */
-  do(cmdStr) {
-    const cmdArr = cmdStr.split(' ');
-
-    const parseResult = this.splitFuncPart(cmdArr);
+  do(cmdsStr) {
+    const cmdStrs = cmdsStr.split('|');
+    let result = '';
+    for (const cmdStr of cmdStrs) {// パイプで繋がれた各コマンドを逐次処理する
+      const cmdArr = cmdStr.split(' ');
   
-    // parse結果の処理の実行
-    return parseResult.f(...parseResult.vars);
+      let tmpFunc = this.funcs;
+      let cmdVars = result ? [result] : [];// 予め第一引数に前の結果を入れておく
+      for (const cmd of cmdArr) {// 各コマンドの処理
+
+        if (tmpFunc[cmd]) {// 該当するコマンドがある時
+          tmpFunc = tmpFunc[cmd];
+        } else if (tmpFunc.func) {// 該当するコマンドが無いが、コマンドの引数の形式となっている時
+          cmdVars.push(cmd);
+        } else {// そんなコマンドない時
+          return `${cmdStr} : Command not found.`;
+        }
+      }
+      
+      if (tmpFunc.func) {
+        result = tmpFunc.func(...cmdVars);
+      } else {
+        return `${cmdStr} : Command not found.`;
+      }
+    }
+    // 最終結果が返される
+    return result;
   }
 }

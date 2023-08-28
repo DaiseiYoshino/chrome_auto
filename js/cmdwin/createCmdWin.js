@@ -1,14 +1,3 @@
-// 関数リスト定義
-const cmdWinFuncs = {
-  f1: () => 'Function f1 called.',
-  f2: (text) => `Input is ${text}`,
-  fs: {
-    a: () => 'Fs a called.',
-    b: (v1, v2) => `Input is ${v1}, ${v2}`
-  },
-  ss: getScreenShot
-};
-
 // 起動設定の外出し
 const isShiftCtrl = (e) => {
   if (!e.shiftKey) return false;
@@ -43,8 +32,8 @@ class CmdWin {
       color: #008
       position: fixed
       bottom: -1px
-      right: 25%
-      width: 25%
+      right: 5%
+      width: 50%
       height: 100px
       visibility: hidden
     `;
@@ -55,13 +44,33 @@ class CmdWin {
 
   createCmdInput() {
     this.cmdInput = this.cmdRoot.appendChild(document.createElement('input'));
+    this.cmdInput.style = this.styleMaker(`
+      position: relative
+      width: 95%
+      top: 5%
+      background-color: #444
+      color: #0ff
+    `);
 
     this.cmdInput.addEventListener('keydown', (e) => {
       // Enterでなければ何もしない
       if (e.key !== 'Enter') return;
 
-      this.cmdInput.value = this.parser.do(this.cmdInput.value);
+      this.result.innerText = this.parser.do(this.cmdInput.value);
+      this.cmdInput.value = '';
     }, true);
+  }
+
+  createResultText() {
+    this.result = this.cmdRoot.appendChild(document.createElement('span'));
+
+    this.result.style = this.styleMaker(`
+      color: #00ff00
+      position: relative
+      float: left
+      top: 10%
+      left: 5%
+    `);
   }
 
   windowSetting() {
@@ -81,8 +90,7 @@ class CmdWin {
   run() {
     this.createCmdRoot();
     this.createCmdInput();
+    this.createResultText();
     this.windowSetting();
   }
 }
-
-(new CmdWin(new CmdParser(cmdWinFuncs))).run();
