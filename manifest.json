@@ -25,7 +25,6 @@
       "js": [
         "lib/datas.js",
         "lib/setAuto.js",
-        "lib/setConsole.js",
         "lib/cmdwin/parser.js",
         "lib/cmdwin/createCmdWin.js",
         "lib/main.js"
@@ -34,6 +33,13 @@
     }
   ],
   "web_accessible_resources": [
+    {
+      "matches": ["*://*/*"],
+      "resources": [
+        "lib/setConsole/setConsole.js",
+        "lib/setConsole/basic.js"
+      ]
+    }
   ],
   "content_security_policy": {
     "extension_pages": "default-src 'self'; object-src 'self'; script-src 'self';"
