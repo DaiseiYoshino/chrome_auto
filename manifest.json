@@ -10,11 +10,11 @@
   ],
   "background": [
     {
-      "service_worker": "js/commands/utils.js",
+      "service_worker": "lib/utils.js",
       "type": "module"
     },
     {
-      "service_worker": "js/screenshot.js"
+      "service_worker": "lib/screenshot.js"
     }
   ],
   "content_scripts": [
@@ -23,12 +23,12 @@
         "*://*/*"
       ],
       "js": [
-        "js/datas.js",
-        "js/setAuto.js",
-        "js/setConsole.js",
-        "js/cmdwin/parser.js",
-        "js/cmdwin/createCmdWin.js",
-        "js/main.js"
+        "lib/datas.js",
+        "lib/setAuto.js",
+        "lib/setConsole.js",
+        "lib/cmdwin/parser.js",
+        "lib/cmdwin/createCmdWin.js",
+        "lib/main.js"
       ],
       "run_at": "document_end"
     }
