@@ -104,6 +104,7 @@ const funcsData = {
   cbp: clickByPoint,
   copy: copy,
   rr: randInRange,
-  sleep: sleep,
-  fqs: FindQuerySelector
+  fqs: FindQuerySelector,
+  ss: getScreenshot,
+  sleep: sleep
 };
