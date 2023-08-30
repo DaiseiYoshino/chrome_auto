@@ -10,11 +10,8 @@
   ],
   "background": [
     {
-      "service_worker": "lib/utils.js",
-      "type": "module"
-    },
-    {
       "service_worker": [
+        "lib/utils.js",
         "lib/cmdwin/createCmdWin.js",
         "lib/cmdwin/parser.js"
       ],
@@ -32,7 +29,7 @@
       "js": [
         "lib/datas.js",
         "lib/setAuto.js",
-        "lib/main.js"
+        "run.js"
       ],
       "run_at": "document_end"
     }
@@ -44,7 +41,8 @@
         "lib/cmdwin/createCmdWin.js",
         "lib/cmdwin/parser.js",
         "lib/setConsole/setConsole.js",
-        "lib/setConsole/basic.js"
+        "lib/setConsole/basic.js",
+        "lib/main.js"
       ]
     }
   ],
