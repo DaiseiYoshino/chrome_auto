@@ -14,6 +14,10 @@
       "type": "module"
     },
     {
+      "service_worker": "lib/cmdwin/createCmdWin.js",
+      "type": "module"
+    },
+    {
       "service_worker": "lib/screenshot.js"
     }
   ],
@@ -26,7 +30,6 @@
         "lib/datas.js",
         "lib/setAuto.js",
         "lib/cmdwin/parser.js",
-        "lib/cmdwin/createCmdWin.js",
         "lib/main.js"
       ],
       "run_at": "document_end"
@@ -36,6 +39,7 @@
     {
       "matches": ["*://*/*"],
       "resources": [
+        "lib/cmdwin/createCmdWin.js",
         "lib/setConsole/setConsole.js",
         "lib/setConsole/basic.js"
       ]
