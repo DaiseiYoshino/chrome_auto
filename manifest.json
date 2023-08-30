@@ -13,7 +13,8 @@
       "service_worker": [
         "lib/utils.js",
         "lib/cmdwin/createCmdWin.js",
-        "lib/cmdwin/parser.js"
+        "lib/cmdwin/parser.js",
+        "lib/main.js"
       ],
       "type": "module"
     },
