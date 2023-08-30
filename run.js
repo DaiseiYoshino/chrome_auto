@@ -1,5 +1,7 @@
 
 (async () => {
   const main = await import(chrome.runtime.getURL('lib/main.js'));
-  main.run();
+  main.run({
+    console: ['usr/console-example.js']
+  });
 })()

@@ -41,7 +41,8 @@
       "resources": [
         "lib/cmdwin/*.js",
         "lib/setConsole/*.js",
-        "lib/main.js"
+        "lib/main.js",
+        "usr/*.js"
       ]
     }
   ],
