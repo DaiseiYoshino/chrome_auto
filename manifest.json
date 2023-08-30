@@ -14,6 +14,7 @@
         "lib/utils.js",
         "lib/cmdwin/createCmdWin.js",
         "lib/cmdwin/parser.js",
+        "lib/CommandFunc.js",
         "lib/main.js"
       ],
       "type": "module"
@@ -41,6 +42,7 @@
       "resources": [
         "lib/cmdwin/*.js",
         "lib/setConsole/*.js",
+        "lib/CommandFunc.js",
         "lib/main.js",
         "usr/*.js"
       ]
