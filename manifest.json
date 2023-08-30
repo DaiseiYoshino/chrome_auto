@@ -39,10 +39,8 @@
     {
       "matches": ["*://*/*"],
       "resources": [
-        "lib/cmdwin/createCmdWin.js",
-        "lib/cmdwin/parser.js",
-        "lib/setConsole/setConsole.js",
-        "lib/setConsole/basic.js",
+        "lib/cmdwin/*.js",
+        "lib/setConsole/*.js",
         "lib/main.js"
       ]
     }
