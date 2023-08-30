@@ -29,7 +29,6 @@
         "*://*/*"
       ],
       "js": [
-        "lib/datas.js",
         "lib/setAuto.js",
         "run.js"
       ],
