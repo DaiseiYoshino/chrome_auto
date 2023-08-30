@@ -11,11 +11,7 @@
   "background": [
     {
       "service_worker": [
-        "lib/utils.js",
-        "lib/cmdwin/createCmdWin.js",
-        "lib/cmdwin/parser.js",
-        "lib/CommandFunc.js",
-        "lib/main.js"
+        "lib/utils.js"
       ],
       "type": "module"
     },
